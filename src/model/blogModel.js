@@ -15,14 +15,14 @@ const blogSchema = new mongoose.Schema({
         ref: "author1"
     },
     tags: {
-        type: Array,
+        type: [String],
     },
     category: {
-        type: String,
+        type: [String],
         required: true
     },
     subcategory: {
-        type: Array,
+        type: [String],
     },
     isDeleted: {
         type: Boolean,
@@ -31,6 +31,9 @@ const blogSchema = new mongoose.Schema({
     isPublished: {
         type: Boolean,
         default: false
+    },
+    publishedAt: {
+        type: Date, defualt:null
     }
 
 }, { timestamps: true });
