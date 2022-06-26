@@ -40,7 +40,7 @@ const createAuthor = async function (req, res) {
         let mail = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(email.trim())
         if (!mail) return res.status(400).send({ stats: true, msg: "enter valid mail" })
         let findUser = await authorModel.find({ email: email })
-        if (findUser) return res.status(400).send({ status: false, msg: "Email is aleardy Exist" })
+        if (findUser.length!=0) return res.status(400).send({ status: false, msg: "Email is aleardy Exist" })
 
 
         //==========================Password validation================================
